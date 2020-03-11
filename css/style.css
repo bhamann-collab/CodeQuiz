@@ -17,7 +17,8 @@ body {
 }
 
 .container-center {
-    height: 400px;
+    min-height: 400px;
+    max-height: 500px;
     width: 800px;
     max-width: 80%;
     background-color: white;
@@ -42,6 +43,12 @@ body {
     height: 50px;
     width: 200px;
     margin: 0 auto;
+}
+
+.highscore-list {
+    height: 150px;
+    font-size: 30px;
+    overflow: scroll;
 }
 
 .title-screen {

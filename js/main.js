@@ -11,9 +11,11 @@ var questionStatement = document.querySelector('.question-screen').childNodes[3]
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
 var answerButton = document.querySelectorAll(".btn-answer");
 var counter = document.querySelector("#countdown-timer");
+var highscoreList = document.querySelector("#highscore-list")
 
 var questionNum = 0;
 var counterTimer = 75;
+var counterHighScore = 0;
 
 
 gameStart.addEventListener('click', startGame);
@@ -53,8 +55,13 @@ function startTimer() {
     },1000)
 }
 
+function stopTimer() {
+    clearInterval(counterTimer);
+    counterTimer = 75;
+}
+
 function nextQuestion() {
-    //Testing purposes, delete line below later
+    //Testing purposes, delete line below later and uncomment the line below that one
     questionNum = 9;
     //questionNum++;
     questionStatement.innerHTML = question[questionNum].question;
@@ -69,6 +76,16 @@ function nextQuestion() {
 function endGame() {
     questionContent.forEach(x => x.style.display = "none");
     endContent.forEach(x => x.style.display = "inherit");
+    document.querySelector('#display-end-screen').innerHTML = counterTimer;
+    addHighscoreList();
+    stopTimer();
+}
+
+function addHighscoreList() {
+    var node = document.createElement("li");
+    var textnode = document.createTextNode(`${counterTimer}`);
+    node.appendChild(textnode)
+    highscoreList.appendChild(node)
 }
 
 function gameOver() {
