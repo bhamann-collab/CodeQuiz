@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JavaScript Quiz</title>
 </head>
 <body>
-    <script src="js/questions.js"></script>    
+    <div class="container container-center">
+        <div class="title-screen">
+            <h1 class="text-center">Coding Quiz Challenge</h1>
+            <p class="text-center">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.</p>
+        </div>
+        <div class="question-screen">
+            <h1>Question:</h1>
+            <h3>This is some dummy text</h3>
+        </div>
+        <div class="row question-screen" align="center">
+            <div class="col col-xs-6">
+                <button class="btn-answer btn-own" id="a">Answer 1</button>                
+            </div>
+            <div class="col col-xs-6">
+                <button class="btn-answer btn-own" id="b">Answer 2</button>                
+            </div>
+            <div class="col col-xs-6">
+                <button class="btn-answer btn-own" id="c">Answer 3</button>                
+            </div>
+            <div class="col col-xs-6">
+                <button class="btn-answer btn-own" id="d">Answer 4</button>
+            </div>
+        </div>
+        <div class="row title-screen bottom">
+            <div class="col" align="center">
+                <button id="start-btn" class="start-btn btn-own">Start</button>
+            </div>
+        </div>
+    </div>
+    <div class="end-screen">
+        <div class="row">
+            <h1>Your Score Was:</h1><h3></h3>
+        </div>
+        <div class="row">
+            <h1>Type your name below</h1>
+        </div>
+    </div>
+    <script rel="shortcut icon" type="module" src="js/main.js"></script>    
 </body>
 </html>

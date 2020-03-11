@@ -1,4 +1,4 @@
-const myQuestions = [
+export const myQuestions = [
     {
       question: "Who was the inventor of Javascript?",
       answers: {
@@ -12,12 +12,12 @@ const myQuestions = [
     {
       question: "Which HTML element do we store JavaScript files in?",
       answers: {
-        a: "<style>",
-        b: "<js>",
-        c: "<javascript>",
-        d: "<script>"
+        a: '&ltstyle&gt',
+        b: "&ltjs&gt",
+        c: "&ltjavascript&gt",
+        d: "&ltscript&gt"
       },
-      correctAnswer: "a"
+      correctAnswer: "d"
     },
     {
       question: 'What is the correct JavaScript syntax to change the value of the paragraph element: <p id="demo">Please Change Me</p>',
@@ -100,3 +100,4 @@ const myQuestions = [
       correctAnswer: "d"
     },
   ];
+

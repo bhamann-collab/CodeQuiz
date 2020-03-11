@@ -1,0 +1,62 @@
+body {
+    font-family: 'Gotham Rounded', Roboto, sans-serif;
+    background-color: #4056A1;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('GothamRounded-Bold.woff2') format('woff2'),
+        url('GothamRounded-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container-center {
+    height: 400px;
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:  0 0 10px 2px;
+    display: flexbox;
+}
+
+.btn-own{
+    border: 1px solid #4390bc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+    background-color: #4056A1;
+    color: white;
+    height: 80px;
+    width: 250px;
+    margin: 20px 0;
+}
+
+.start-btn {
+    height: 50px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.title-screen {
+   display: inherit; 
+}
+
+.question-screen {
+    display: none;
+}
+
+.end-screen {
+    display: none;
+}
+
+.bottom {
+    position: relative;
+    bottom: 0px;
+}
