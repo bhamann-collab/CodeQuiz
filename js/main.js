@@ -10,9 +10,10 @@ var gameStart = document.querySelector('#start-btn');
 var questionStatement = document.querySelector('.question-screen').childNodes[3];
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
 var answerButton = document.querySelectorAll(".btn-answer");
+var counter = document.querySelector("#countdown-timer");
 
 var questionNum = 0;
-
+var counterTimer = 75;
 
 
 gameStart.addEventListener('click', startGame);
@@ -30,19 +31,27 @@ function startGame() {
     answerStatements[1].innerHTML = question[0].answers.b
     answerStatements[2].innerHTML = question[0].answers.c
     answerStatements[3].innerHTML = question[0].answers.d
+    counter.children[0].innerHTML = counterTimer;
+    startTimer();
 }
 
 function answerQuestion(event) {
-    if (event.target.getAttribute("id") === question[questionNum].correctAnswer){
-        if (questionNum === 9) {
-            endGame();
-            return;
-        }
-        nextQuestion()
+    if (event.target.getAttribute("id") != question[questionNum].correctAnswer){
+        counterTimer = counterTimer - 10;
     }
+    if (questionNum === 9) {
+        endGame();
+        return;
+    }
+    nextQuestion();
 }
 
-function startTimer() {}
+function startTimer() {
+    setInterval(function() {
+        counterTimer--;
+        counter.children[0].innerHTML = counterTimer;
+    },1000)
+}
 
 function nextQuestion() {
     //Testing purposes, delete line below later
@@ -58,8 +67,10 @@ function nextQuestion() {
 }
 
 function endGame() {
+    questionContent.forEach(x => x.style.display = "none");
     endContent.forEach(x => x.style.display = "inherit");
 }
 
+function gameOver() {
 
-
+}
