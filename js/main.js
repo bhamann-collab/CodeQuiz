@@ -17,9 +17,14 @@ var highscoreList = document.querySelector("#highscore-list");
 
 var questionNum;
 var counterTimer;
-var counterHighScore = 0;
 var IntervalID;
 
+
+window.onload =  function(){
+    if(localStorage.getItem("highscores") != null){
+        highscoreList.outerHTML = localStorage.getItem("highscores")
+    }
+}
 
 gameStart.addEventListener('click', startGame);
 
@@ -115,6 +120,10 @@ function addHighscoreList() {
     } 
     endContent.forEach(x => x.style.display = "none");
     startContent.forEach(x => x.style.display = "inherit");
+    highscoreList = document.querySelector("#highscore-list");
+    console.log(highscoreList)
+    console.log(document.querySelector("#highscore-list"))
+    localStorage.setItem("highscores", highscoreList.outerHTML)
 }
 
 function gameOver() {
