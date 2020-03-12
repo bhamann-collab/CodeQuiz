@@ -7,7 +7,7 @@ var questionContent = document.querySelectorAll('.question-screen');
 var endContent = document.querySelectorAll('.end-screen')
 
 var gameStart = document.querySelector('#start-btn');
-var gameStop = document.querySelector('#end-btn');
+var gameEnd = document.querySelector('#end-btn');
 
 var questionStatement = document.querySelector('.question-screen').childNodes[3];
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
@@ -27,7 +27,7 @@ answerStatements.forEach(i => {
     i.addEventListener('click',answerQuestion);
 })
 
-gameStop.addEventListener('click', addHighscoreList);
+gameEnd.addEventListener('click', addHighscoreList);
 
 
 
@@ -65,7 +65,6 @@ function startTimer() {
 }
 
 function stopTimer() {
-    console.log("Hello you absolute legends")
     clearInterval(IntervalID);
     //counterTimer = 75;
 }
@@ -91,14 +90,48 @@ function endGame() {
 }
 
 function addHighscoreList() {
+    var playerName =  document.querySelector('#enter-name').value;
     var node = document.createElement("li");
-    var textnode = document.createTextNode(`${counterTimer}`);
+    node.setAttribute('class', counterTimer)
+    var textnode = document.createTextNode(`${playerName}: ${counterTimer}`);
     node.appendChild(textnode);
-    highscoreList.appendChild(node);
+    for (var i = 0; i <= (highscoreList.childElementCount); i++) {
+        //if there is nothing in the highscore list
+        if(highscoreList.childElementCount === 0) {
+            console.log("There are no element")
+            highscoreList.appendChild(node)
+            break;
+        //if we got the worst score in the system
+        } else if (i === highscoreList.childElementCount) {
+            console.log("worst score")
+            highscoreList.insertBefore(node, highscoreList[highscoreList.children.length - 1]);
+            break;
+        //if our score match with another score or is greater than a score going down the list, we place our score above theirs
+        } else if (parseInt(node.className) >= parseInt(highscoreList.children[i].className)) {
+            console.log(`Hello you absolute legends`)
+            highscoreList.insertBefore(node, highscoreList.children[i]);
+            break;
+        } 
+    } 
     endContent.forEach(x => x.style.display = "none");
     startContent.forEach(x => x.style.display = "inherit");
 }
 
 function gameOver() {
+
+}
+
+function sortList() {
+    var list = document.querySelector("#highscore-list").children;
+    var switching = true;
+    var arr;
+
+    while (switching) {
+        switching = false;
+        for (i = 0; i < (list.length - 1); i++) {
+            shouldSwitch = false;
+            arr = list[0].innerHTML;
+        }
+    }
 
 }
