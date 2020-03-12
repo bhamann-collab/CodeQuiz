@@ -7,25 +7,33 @@ var questionContent = document.querySelectorAll('.question-screen');
 var endContent = document.querySelectorAll('.end-screen')
 
 var gameStart = document.querySelector('#start-btn');
+var gameStop = document.querySelector('#end-btn');
+
 var questionStatement = document.querySelector('.question-screen').childNodes[3];
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
 var answerButton = document.querySelectorAll(".btn-answer");
 var counter = document.querySelector("#countdown-timer");
-var highscoreList = document.querySelector("#highscore-list")
+var highscoreList = document.querySelector("#highscore-list");
 
-var questionNum = 0;
-var counterTimer = 75;
+var questionNum;
+var counterTimer;
 var counterHighScore = 0;
+var IntervalID;
 
 
 gameStart.addEventListener('click', startGame);
+
 answerStatements.forEach(i => {
-    i.addEventListener('click',answerQuestion)
+    i.addEventListener('click',answerQuestion);
 })
+
+gameStop.addEventListener('click', addHighscoreList);
 
 
 
 function startGame() {
+    counterTimer = 75;
+    questionNum = 0;
     startContent.forEach(x => x.style.display = "none");
     questionContent.forEach(x => x.style.display = "inherit");
     questionStatement.innerHTML = question[0].question;
@@ -49,15 +57,17 @@ function answerQuestion(event) {
 }
 
 function startTimer() {
-    setInterval(function() {
+    IntervalID = setInterval(function() {
         counterTimer--;
         counter.children[0].innerHTML = counterTimer;
+        console.log(counterTimer)
     },1000)
 }
 
 function stopTimer() {
-    clearInterval(counterTimer);
-    counterTimer = 75;
+    console.log("Hello you absolute legends")
+    clearInterval(IntervalID);
+    //counterTimer = 75;
 }
 
 function nextQuestion() {
@@ -77,15 +87,16 @@ function endGame() {
     questionContent.forEach(x => x.style.display = "none");
     endContent.forEach(x => x.style.display = "inherit");
     document.querySelector('#display-end-screen').innerHTML = counterTimer;
-    addHighscoreList();
     stopTimer();
 }
 
 function addHighscoreList() {
     var node = document.createElement("li");
     var textnode = document.createTextNode(`${counterTimer}`);
-    node.appendChild(textnode)
-    highscoreList.appendChild(node)
+    node.appendChild(textnode);
+    highscoreList.appendChild(node);
+    endContent.forEach(x => x.style.display = "none");
+    startContent.forEach(x => x.style.display = "inherit");
 }
 
 function gameOver() {

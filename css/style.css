@@ -48,7 +48,8 @@ body {
 .highscore-list {
     height: 150px;
     font-size: 30px;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .title-screen {
@@ -65,5 +66,4 @@ body {
 
 .bottom {
     position: relative;
-    bottom: 0px;
 }
