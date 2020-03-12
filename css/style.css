@@ -8,6 +8,11 @@ body {
     display: flex;
 }
 
+li {
+    margin-left: 15px;
+    padding: 5px;
+}
+
 @font-face {
     font-family: 'Gotham Rounded';
     src: url('GothamRounded-Bold.woff2') format('woff2'),
@@ -45,8 +50,17 @@ body {
     margin: 0 auto;
 }
 
+.btn-answer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    height: 100px;
+    width: 370px;
+}
+
 .highscore-list {
-    height: 150px;
+    height: 200px;
     font-size: 30px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -62,6 +76,14 @@ body {
 
 .end-screen {
     display: none;
+}
+
+.gameover-screen {
+    display: none;
+}
+
+.gameover-screen:first-child{
+    margin-bottom: 20px;
 }
 
 .bottom {

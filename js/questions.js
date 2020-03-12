@@ -20,7 +20,7 @@ export const myQuestions = [
       correctAnswer: "d"
     },
     {
-      question: 'What is the correct JavaScript syntax to change the value of the paragraph element: <p id="demo">Please Change Me</p>',
+      question: 'What is the correct JavaScript syntax to change the value of the paragraph element: &ltp id="demo"&gtPlease Change Me&lt/p&gt',
       answers: {
         a: 'document.getElement("p").innerHTML = "Hello World!";',
         b: '#demo.innerHTML = "Hello World!";',
@@ -30,7 +30,7 @@ export const myQuestions = [
       correctAnswer: "d"
     },
     {
-      question: "How do you create a function In JavaScript?",
+      question: "How do you call a function In JavaScript?",
       answers: {
         a: "myFunction();",
         b: "call function myFunction;",
@@ -77,7 +77,7 @@ export const myQuestions = [
         c: 'var me = {age:31 hair:"brown"};',
         d: 'var me = {var age=31, var hair="brown"};'
       },
-      correctAnswer: "c"
+      correctAnswer: "b"
     },
     {
       question: 'Which of these objects have 3 properties?',

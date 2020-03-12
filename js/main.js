@@ -5,13 +5,14 @@ var question = SelectQuestion.myQuestions;
 var startContent = document.querySelectorAll('.title-screen');
 var questionContent = document.querySelectorAll('.question-screen');
 var endContent = document.querySelectorAll('.end-screen')
+var gameOverContent = document.querySelectorAll('.gameover-screen')
 
 var gameStart = document.querySelector('#start-btn');
 var gameEnd = document.querySelector('#end-btn');
+var gameoverButton = document.querySelector("#gameover-btn");
 
 var questionStatement = document.querySelector('.question-screen').childNodes[3];
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
-var answerButton = document.querySelectorAll(".btn-answer");
 var counter = document.querySelector("#countdown-timer");
 var highscoreList = document.querySelector("#highscore-list");
 
@@ -26,6 +27,10 @@ window.onload =  function(){
     }
 }
 
+
+
+gameoverButton.addEventListener('click', transitionToStart)
+
 gameStart.addEventListener('click', startGame);
 
 answerStatements.forEach(i => {
@@ -37,7 +42,7 @@ gameEnd.addEventListener('click', addHighscoreList);
 
 
 function startGame() {
-    counterTimer = 75;
+    counterTimer = 150;
     questionNum = 0;
     startContent.forEach(x => x.style.display = "none");
     questionContent.forEach(x => x.style.display = "inherit");
@@ -65,19 +70,20 @@ function startTimer() {
     IntervalID = setInterval(function() {
         counterTimer--;
         counter.children[0].innerHTML = counterTimer;
-        console.log(counterTimer)
+        if (counterTimer <= 0){
+            gameOver();
+            stopTimer();
+            return;
+        }
     },1000)
 }
 
 function stopTimer() {
     clearInterval(IntervalID);
-    //counterTimer = 75;
 }
 
 function nextQuestion() {
-    //Testing purposes, delete line below later and uncomment the line below that one
-    questionNum = 9;
-    //questionNum++;
+    questionNum++;
     questionStatement.innerHTML = question[questionNum].question;
     answerStatements[0].innerHTML = question[questionNum].answers.a
     answerStatements[1].innerHTML = question[questionNum].answers.b
@@ -95,6 +101,7 @@ function endGame() {
 }
 
 function addHighscoreList() {
+    highscoreList = document.querySelector("#highscore-list");
     var playerName =  document.querySelector('#enter-name').value;
     var node = document.createElement("li");
     node.setAttribute('class', counterTimer)
@@ -120,27 +127,18 @@ function addHighscoreList() {
     } 
     endContent.forEach(x => x.style.display = "none");
     startContent.forEach(x => x.style.display = "inherit");
-    highscoreList = document.querySelector("#highscore-list");
     console.log(highscoreList)
     console.log(document.querySelector("#highscore-list"))
     localStorage.setItem("highscores", highscoreList.outerHTML)
 }
 
 function gameOver() {
-
+    questionContent.forEach(x => x.style.display = "none");
+    gameOverContent.forEach(x => x.style.display = "inherit");
 }
 
-function sortList() {
-    var list = document.querySelector("#highscore-list").children;
-    var switching = true;
-    var arr;
-
-    while (switching) {
-        switching = false;
-        for (i = 0; i < (list.length - 1); i++) {
-            shouldSwitch = false;
-            arr = list[0].innerHTML;
-        }
-    }
-
+function transitionToStart() {
+    endContent.forEach(x => x.style.display = "none");
+    gameOverContent.forEach(x => x.style.display = "none");
+    startContent.forEach(x => x.style.display = "inherit");
 }
