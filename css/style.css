@@ -32,6 +32,25 @@ li {
     display: flexbox;
 }
 
+@media only screen and (max-width: 992px) {
+    body {
+        background-color: white;
+    }
+
+    .container-center {
+        min-height: 100vh;
+        min-width: 100vw;
+        box-shadow: none;
+    }
+
+    .btn-answer {
+        height: 140px;
+        max-width: 330px;
+        margin: 10px 0;
+        font-size: 13px;
+    }
+  }
+
 .btn-own{
     border: 1px solid #4390bc;
     border-radius: 5px;

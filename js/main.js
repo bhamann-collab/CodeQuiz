@@ -11,7 +11,7 @@ var gameStart = document.querySelector('#start-btn');
 var gameEnd = document.querySelector('#end-btn');
 var gameoverButton = document.querySelector("#gameover-btn");
 
-var questionStatement = document.querySelector('.question-screen').childNodes[3];
+var questionStatement = document.querySelector('#question-placeholder');
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
 var counter = document.querySelector("#countdown-timer");
 var highscoreList = document.querySelector("#highscore-list");
@@ -25,6 +25,7 @@ window.onload =  function(){
     if(localStorage.getItem("highscores") != null){
         highscoreList.outerHTML = localStorage.getItem("highscores")
     }
+    window.scroll(0, 0);
 }
 
 
@@ -46,7 +47,7 @@ function startGame() {
     questionNum = 0;
     startContent.forEach(x => x.style.display = "none");
     questionContent.forEach(x => x.style.display = "inherit");
-    questionStatement.innerHTML = question[0].question;
+    questionStatement.childNodes[1].innerHTML = question[0].question;
     answerStatements[0].innerHTML = question[0].answers.a
     answerStatements[1].innerHTML = question[0].answers.b
     answerStatements[2].innerHTML = question[0].answers.c
@@ -84,11 +85,11 @@ function stopTimer() {
 
 function nextQuestion() {
     questionNum++;
-    questionStatement.innerHTML = question[questionNum].question;
-    answerStatements[0].innerHTML = question[questionNum].answers.a
-    answerStatements[1].innerHTML = question[questionNum].answers.b
-    answerStatements[2].innerHTML = question[questionNum].answers.c
-    answerStatements[3].innerHTML = question[questionNum].answers.d
+    questionStatement.childNodes[1].innerHTML = question[questionNum].question;
+    answerStatements[0].innerHTML = question[questionNum].answers.a;
+    answerStatements[1].innerHTML = question[questionNum].answers.b;
+    answerStatements[2].innerHTML = question[questionNum].answers.c;
+    answerStatements[3].innerHTML = question[questionNum].answers.d;
     console.log(questionNum)
     console.log(question[questionNum].answers.a)
 }
