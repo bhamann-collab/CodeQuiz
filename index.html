@@ -3,94 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>JavaScript Quiz</title>
 </head>
-<body id="doc-start">
-    <div class="container container-center">
-        <div class="title-screen" id="title-highscore">
-            <h1 class="text-center">Coding Quiz Challenge</h1>
-            <p class="text-center">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.</p>
-            <ol id="highscore-list" class="highscore-list">
-            </ol>
-        </div>
+<body>
+    <div class="container">
         <div class="row">
-            <div class="col-sm-8 col-xs-7">
-                <h1 class="question-screen">Question:</h1>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-                <div class="question-screen">
-                    <h1></h1>
+            <div class="col">
+                <div class="container-center">
+                    <div class="title-screen" id="title-highscore">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-center">
+                                        <h1>Coding Quiz Challenge</h1>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-center">
+                                        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <ol id="highscore-list" class="highscore-list">
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="start-btn">
+                                        <button id="start-btn" class="start-btn btn-own">Start</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="question-screen">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="offset-sm-1 col-sm-10 col-xs-7">
+                                    <div class="text-center">
+                                        <div id="question-placeholder">
+                                            <h3></h3>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-1 col-xs-3">
+                                    <div id="countdown-timer">
+                                        <h3></h3>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="correct-incorrect">
+                                        <h3>Correct</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="btn-answer">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col col-md-6 col-xs-12">
+                                                    <div class="button-center">
+                                                        <button class="btn-answer btn-own" id="a">Answer 1</button>
+                                                    </div>               
+                                                </div>
+                                                <div class="col col-md-6 col-xs-12">
+                                                    <div class="button-center">
+                                                        <button class="btn-answer btn-own" id="b">Answer 2</button> 
+                                                    </div>               
+                                                </div>
+                                                <div class="col col-md-6 col-xs-12">
+                                                    <div class="button-center">
+                                                        <button class="btn-answer btn-own" id="c">Answer 3</button> 
+                                                    </div>         
+                                                </div>
+                                                <div class="col col-md-6 col-xs-12">
+                                                    <div class="button-center">
+                                                        <button class="btn-answer btn-own" id="d">Answer 4</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="end-screen">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="button-center">
+                                        <h1 class="text-center">Your Score Was:</h1><h3></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="text-center" id="display-end-screen"></h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="text-center">Type your name below</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <form onSubmit="return false;">
+                                        <div class="form-group" align="center">
+                                            <input id="enter-name" class="form-control" placeholder="Name Here">
+                                            <button id="end-btn" class="end-btn btn-own">End</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gameover-screen">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="text-center">Game Over!</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="text-center content-margin">Click below to play again</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="button-center">
+                                        <button id="gameover-btn" class="start-btn btn-own">End</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-2 col-xs-3">
-                <div class="question-screen" id="countdown-timer">
-                    <h3></h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="question-screen" id="question-placeholder" align="center">
-                <h3></h3>
-            </div>  
-        </div>
-        <div class="row question-screen" align="center">
-            <div class="col col-md-6 col-xs-12">
-                <button class="btn-answer btn-own" id="a">Answer 1</button>                
-            </div>
-            <div class="col col-md-6 col-xs-12">
-                <button class="btn-answer btn-own" id="b">Answer 2</button>                
-            </div>
-            <div class="col col-md-6 col-xs-12">
-                <button class="btn-answer btn-own" id="c">Answer 3</button>                
-            </div>
-            <div class="col col-md-6 col-xs-12">
-                <button class="btn-answer btn-own" id="d">Answer 4</button>
-            </div>
-        </div>
-        <div class="row title-screen bottom">
-            <div class="col" align="center">
-                <button id="start-btn" class="start-btn btn-own">Start</button>
-            </div>
-        </div>
-   
-    <div class="end-screen">
-        <div class="row">
-            <h1 class="text-center">Your Score Was:</h1><h3></h3>
-        </div>
-        <div class="row">
-            <h1 class="text-center" id="display-end-screen"></h1>
-        </div>
-        <div class="row">
-            <h1 class="text-center">Type your name below</h1>
-        </div>
-        <div class="row">
-            <form onSubmit="return false;">
-                <div class="form-group" align="center">
-                    <input id="enter-name" class="form-control" placeholder="Name Here">
-                    <button id="end-btn" class="end-btn btn-own">End</button>
-                </div>
-            </form>
         </div>
     </div>
-    <div class="gameover-screen">
-        <div class="row">
-            <h1 class="text-center">Game Over!</h1>
-        </div>
-        <div class="row">
-            <h1 class="text-center">Click below to play again</h1>
-        </div>
-        <div class="row">
-            <div class="col" align="center">
-                <button id="gameover-btn" class="start-btn btn-own">End</button>
-            </div>
-        </div>
-    </div>
-</div>
+    
     <script rel="shortcut icon" type="module" src="js/main.js"></script>    
 </body>
 </html>

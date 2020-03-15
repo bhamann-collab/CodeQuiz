@@ -22,10 +22,7 @@ li {
 }
 
 .container-center {
-    min-height: 400px;
-    max-height: 500px;
-    width: 800px;
-    max-width: 80%;
+    min-height: 456px;
     background-color: white;
     border-radius: 5px;
     box-shadow:  0 0 10px 2px;
@@ -63,19 +60,35 @@ li {
     margin: 20px 0;
 }
 
-.start-btn {
+.start-bt.btn-own {
     height: 50px;
     width: 200px;
-    margin: 0 auto;
 }
 
-.btn-answer {
+div.start-btn {
+    display: flex;
+    align-content: bottom;
+    justify-content: center;
+}
+
+div.btn-answer {
+    display: flex;
+    align-content: bottom;
+    justify-content: center;
+}
+
+button.btn-answer {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     height: 100px;
-    width: 370px;
+    width: 390px;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
 }
 
 .highscore-list {
@@ -90,6 +103,8 @@ li {
 }
 
 .question-screen {
+    min-height: 456px;
+    max-height: 456px;
     display: none;
 }
 
@@ -105,6 +120,28 @@ li {
     margin-bottom: 20px;
 }
 
-.bottom {
-    position: relative;
+.correct-incorrect {
+    height: 40px;
+    width: 100%;
+    visibility: hidden;
 }
+
+.reveal-green {
+    visibility: visible !important;
+    text-align: center;
+    color: green;
+  }
+  
+  .reveal-red {
+    visibility: visible !important;
+    text-align: center;
+    color: red;
+  }
+
+  #display-end-screen {
+      margin-bottom: 130px;
+  }
+
+  .content-margin {
+      margin-top: 220px;
+  }

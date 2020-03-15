@@ -43,7 +43,8 @@ gameEnd.addEventListener('click', addHighscoreList);
 
 
 function startGame() {
-    counterTimer = 150;
+    document.querySelector(".correct-incorrect").children[0].classList = ".correct-incorrect"
+    counterTimer = 80;
     questionNum = 0;
     startContent.forEach(x => x.style.display = "none");
     questionContent.forEach(x => x.style.display = "inherit");
@@ -57,8 +58,13 @@ function startGame() {
 }
 
 function answerQuestion(event) {
+    
     if (event.target.getAttribute("id") != question[questionNum].correctAnswer){
         counterTimer = counterTimer - 10;
+        flashIncorrect();
+    } else {
+        flashCorrect();
+
     }
     if (questionNum === 9) {
         endGame();
@@ -142,4 +148,14 @@ function transitionToStart() {
     endContent.forEach(x => x.style.display = "none");
     gameOverContent.forEach(x => x.style.display = "none");
     startContent.forEach(x => x.style.display = "inherit");
+}
+
+function flashCorrect() {
+    document.querySelector(".correct-incorrect").children[0].classList = ".correct-incorrect reveal-green"
+    document.querySelector(".correct-incorrect").children[0].innerHTML = "Correct!"
+}
+
+function flashIncorrect() {
+    document.querySelector(".correct-incorrect").children[0].classList = ".correct-incorrect reveal-red"
+    document.querySelector(".correct-incorrect").children[0].innerHTML = "Incorrect -10 points"
 }
