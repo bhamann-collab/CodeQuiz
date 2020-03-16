@@ -1,26 +1,35 @@
+//Decided to put all the question content in a different folder for separation of concerns
 import * as SelectQuestion from "./questions.js";
 var question = SelectQuestion.myQuestions;
 
-
+//Variables to switch content
 var startContent = document.querySelectorAll('.title-screen');
 var questionContent = document.querySelectorAll('.question-screen');
 var endContent = document.querySelectorAll('.end-screen')
 var gameOverContent = document.querySelectorAll('.gameover-screen')
 
+
+//Variables that are associated with a button
 var gameStart = document.querySelector('#start-btn');
 var gameEnd = document.querySelector('#end-btn');
 var gameoverButton = document.querySelector("#gameover-btn");
-
-var questionStatement = document.querySelector('#question-placeholder');
 var answerStatements = document.querySelectorAll(".btn-answer.btn-own");
+
+
+//Other DOM manipulation variables
+var questionStatement = document.querySelector('#question-placeholder');
 var counter = document.querySelector("#countdown-timer");
 var highscoreList = document.querySelector("#highscore-list");
 
+
+//Global Variables that functions will use
 var questionNum;
 var counterTimer;
 var IntervalID;
 
 
+
+//Resets some components when the page is loaded
 window.onload =  function(){
     if(localStorage.getItem("highscores") != null){
         highscoreList.outerHTML = localStorage.getItem("highscores")
@@ -29,15 +38,19 @@ window.onload =  function(){
 }
 
 
-
+//Transition from GameOver to start
 gameoverButton.addEventListener('click', transitionToStart)
 
+//Transition from the start screen to actually playing the game
 gameStart.addEventListener('click', startGame);
 
+
+//Transition from one question to another
 answerStatements.forEach(i => {
     i.addEventListener('click',answerQuestion);
 })
 
+//Transition from the Enter your name screen to the start menu
 gameEnd.addEventListener('click', addHighscoreList);
 
 
@@ -73,6 +86,7 @@ function answerQuestion(event) {
     nextQuestion();
 }
 
+//Timer starts when the game starts
 function startTimer() {
     IntervalID = setInterval(function() {
         counterTimer--;
@@ -85,9 +99,11 @@ function startTimer() {
     },1000)
 }
 
+//Timer stops when the game stops
 function stopTimer() {
     clearInterval(IntervalID);
 }
+
 
 function nextQuestion() {
     questionNum++;
@@ -96,8 +112,6 @@ function nextQuestion() {
     answerStatements[1].innerHTML = question[questionNum].answers.b;
     answerStatements[2].innerHTML = question[questionNum].answers.c;
     answerStatements[3].innerHTML = question[questionNum].answers.d;
-    console.log(questionNum)
-    console.log(question[questionNum].answers.a)
 }
 
 function endGame() {
@@ -111,32 +125,27 @@ function addHighscoreList() {
     highscoreList = document.querySelector("#highscore-list");
     var playerName =  document.querySelector('#enter-name').value;
     var node = document.createElement("li");
-    node.setAttribute('class', counterTimer)
+    node.setAttribute('class', counterTimer);
     var textnode = document.createTextNode(`${playerName}: ${counterTimer}`);
     node.appendChild(textnode);
     for (var i = 0; i <= (highscoreList.childElementCount); i++) {
         //if there is nothing in the highscore list
         if(highscoreList.childElementCount === 0) {
-            console.log("There are no element")
-            highscoreList.appendChild(node)
+            highscoreList.appendChild(node);
             break;
         //if we got the worst score in the system
         } else if (i === highscoreList.childElementCount) {
-            console.log("worst score")
             highscoreList.insertBefore(node, highscoreList[highscoreList.children.length - 1]);
             break;
         //if our score match with another score or is greater than a score going down the list, we place our score above theirs
         } else if (parseInt(node.className) >= parseInt(highscoreList.children[i].className)) {
-            console.log(`Hello you absolute legends`)
             highscoreList.insertBefore(node, highscoreList.children[i]);
             break;
         } 
     } 
     endContent.forEach(x => x.style.display = "none");
     startContent.forEach(x => x.style.display = "inherit");
-    console.log(highscoreList)
-    console.log(document.querySelector("#highscore-list"))
-    localStorage.setItem("highscores", highscoreList.outerHTML)
+    localStorage.setItem("highscores", highscoreList.outerHTML);
 }
 
 function gameOver() {
