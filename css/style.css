@@ -22,33 +22,11 @@ li {
 }
 
 .container-center {
-    margin-top: 25px;
-    min-height: 456px;
     background-color: white;
     border-radius: 5px;
     box-shadow:  0 0 10px 2px;
     display: flexbox;
 }
-
-@media only screen and (max-width: 200px) {
-    body {
-        background-color: white;
-    }
-
-    .container-center {
-        min-height: 100vh;
-        /*min-width: 100vw;*/
-        box-shadow: none;
-        overflow-x: hidden;
-    }
-
-    .btn-answer {
-        height: 140px;
-        max-width: 330px;
-        margin: 10px 0;
-        font-size: 13px;
-    }
-  }
 
 .btn-own{
     border: 1px solid #4390bc;
