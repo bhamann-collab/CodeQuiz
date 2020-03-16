@@ -2,7 +2,7 @@ body {
     font-family: 'Gotham Rounded', Roboto, sans-serif;
     background-color: #4056A1;
     width: 100vw;
-    height: 100vh;
+    /*height: 100vh;*/
     justify-content: center;
     align-items: center;
     display: flex;
@@ -22,6 +22,7 @@ li {
 }
 
 .container-center {
+    margin-top: 25px;
     min-height: 456px;
     background-color: white;
     border-radius: 5px;
@@ -29,15 +30,16 @@ li {
     display: flexbox;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 200px) {
     body {
         background-color: white;
     }
 
     .container-center {
         min-height: 100vh;
-        min-width: 100vw;
+        /*min-width: 100vw;*/
         box-shadow: none;
+        overflow-x: hidden;
     }
 
     .btn-answer {
@@ -104,7 +106,7 @@ button.btn-answer {
 
 .question-screen {
     min-height: 456px;
-    max-height: 456px;
+    /*max-height: 456px;*/
     display: none;
 }
 
@@ -144,4 +146,8 @@ button.btn-answer {
 
   .content-margin {
       margin-top: 220px;
+  }
+
+  #countdown-timer {
+      text-align: center;
   }
