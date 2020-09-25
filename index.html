@@ -11,90 +11,92 @@
     <title>JavaScript Quiz</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="container-center">
-                    <div class="title-screen" id="title-highscore">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="text-center">
-                                        <h1>Coding Quiz Challenge</h1>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="text-center">
-                                        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.</p>
+    <div class="rectangle">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="container-center">
+                        <div class="title-screen" id="title-highscore">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="text-center">
+                                            <h1>Coding Quiz Challenge</h1>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <ol id="highscore-list" class="highscore-list">
-                                    </ol>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="text-center">
+                                            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="start-btn">
-                                        <button id="start-btn" class="start-btn btn-own">Start</button>
+                                <div class="row">
+                                    <div class="col">
+                                        <ol id="highscore-list" class="highscore-list">
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="start-btn">
+                                            <button id="start-btn" class="start-btn btn-own">Start</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
-                        
-                    </div>
-                    <div class="question-screen">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="offset-1 col-10">
-                                    <div class="text-center">
-                                        <div id="question-placeholder">
+                        <div class="question-screen">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="offset-1 col-10">
+                                        <div class="text-center">
+                                            <div id="question-placeholder">
+                                                <h3></h3>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="col-sm-12 col-md-1">
+                                        <div id="countdown-timer">
                                             <h3></h3>
                                         </div>
                                     </div>
-                                </div> 
-                                <div class="col-sm-12 col-md-1">
-                                    <div id="countdown-timer">
-                                        <h3></h3>
+                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="correct-incorrect">
+                                            <h3>Correct</h3>
+                                        </div>
                                     </div>
                                 </div>
-                               
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="correct-incorrect">
-                                        <h3>Correct</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="btn-answer">
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col col-md-6 col-12">
-                                                    <div class="button-center">
-                                                        <button class="btn-answer btn-own" id="a">Answer 1</button>
-                                                    </div>               
-                                                </div>
-                                                <div class="col col-md-6 col-12">
-                                                    <div class="button-center">
-                                                        <button class="btn-answer btn-own" id="b">Answer 2</button> 
-                                                    </div>               
-                                                </div>
-                                                <div class="col col-md-6 col-12">
-                                                    <div class="button-center">
-                                                        <button class="btn-answer btn-own" id="c">Answer 3</button> 
-                                                    </div>         
-                                                </div>
-                                                <div class="col col-md-6 col-12">
-                                                    <div class="button-center">
-                                                        <button class="btn-answer btn-own" id="d">Answer 4</button>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="btn-answer">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col col-md-6 col-12">
+                                                        <div class="button-center">
+                                                            <button class="btn-answer btn-own" id="a">Answer 1</button>
+                                                        </div>               
+                                                    </div>
+                                                    <div class="col col-md-6 col-12">
+                                                        <div class="button-center">
+                                                            <button class="btn-answer btn-own" id="b">Answer 2</button> 
+                                                        </div>               
+                                                    </div>
+                                                    <div class="col col-md-6 col-12">
+                                                        <div class="button-center">
+                                                            <button class="btn-answer btn-own" id="c">Answer 3</button> 
+                                                        </div>         
+                                                    </div>
+                                                    <div class="col col-md-6 col-12">
+                                                        <div class="button-center">
+                                                            <button class="btn-answer btn-own" id="d">Answer 4</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,54 +105,54 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="end-screen">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="button-center">
-                                        <h1 class="text-center">Your Score Was:</h1><h3></h3>
+                        <div class="end-screen">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="button-center">
+                                            <h1 class="text-center">Your Score Was:</h1><h3></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="text-center" id="display-end-screen"></h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="text-center">Type your name below</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <form onSubmit="return false;">
+                                            <div class="form-group" align="center">
+                                                <input id="enter-name" class="form-control" placeholder="Name Here">
+                                                <button id="end-btn" class="end-btn btn-own">End</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="text-center" id="display-end-screen"></h1>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="text-center">Type your name below</h1>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <form onSubmit="return false;">
-                                        <div class="form-group" align="center">
-                                            <input id="enter-name" class="form-control" placeholder="Name Here">
-                                            <button id="end-btn" class="end-btn btn-own">End</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="gameover-screen">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="text-center">Game Over!</h1>
+                        <div class="gameover-screen">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="text-center">Game Over!</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <h1 class="text-center content-margin">Click below to play again</h1>
+                                <div class="row">
+                                    <div class="col">
+                                        <h1 class="text-center content-margin">Click below to play again</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="button-center">
-                                        <button id="gameover-btn" class="start-btn btn-own">End</button>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="button-center">
+                                            <button id="gameover-btn" class="start-btn btn-own">End</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -160,6 +162,7 @@
             </div>
         </div>
     </div>
+    
     
     <script rel="shortcut icon" type="module" src="js/main.js"></script>    
 </body>
