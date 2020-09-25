@@ -1,4 +1,4 @@
-#Code Quiz
+# Code Quiz
 
 This is a quiz that tests your knowledge on Javascript. There is a highscoring system that is saved via local storage.
 
